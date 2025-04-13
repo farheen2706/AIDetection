@@ -1,0 +1,130 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Audio Check</title>
+    <style>
+        body {
+            background-color: #2e2e2e; /* Dark grey background */
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            font-family: 'Courier New', Courier, monospace; /* Army style font */
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #e0e0e0; /* Light grey text */
+            margin: 0;
+            background-image: url('https://repository-images.githubusercontent.com/799496126/39aa86d9-28ab-4d07-8b78-1ba6c013d012'); /* Background texture */
+            background-size: cover;
+            background-position: center;
+        }
+
+        #css3-spinner-svg-pulse-wrapper {
+            position: relative;
+            width: 260px;
+            height: 210px;
+            background-color: transparent;
+            animation: none;
+            margin-bottom: 20px;
+        }
+
+        #css3-spinner-svg-pulse {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        #css3-spinner-pulse {
+            stroke-dasharray: 281;
+            -webkit-animation: dash 5s infinite linear forwards;
+            animation: dash 5s infinite linear forwards;
+        }
+
+        @-webkit-keyframes dash {
+            from {
+                stroke-dashoffset: 814;
+            }
+            to {
+                stroke-dashoffset: -814;
+            }
+        }
+
+        @keyframes dash {
+            from {
+                stroke-dashoffset: 814;
+            }
+            to {
+                stroke-dashoffset: -814;
+            }
+        }
+
+        #one {
+            color: #ff0000; /* Light grey text */
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .form-container {
+            background-color: #3a4c88; /* Dark grey container */
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Darker shadow */
+            text-align: center;
+            width: 300px;
+            margin-top: 20px;
+        }
+
+        .form-container form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .btn-primary {
+            background-color: #6b0000; /* Olive green button */
+            border: none;
+            padding: 10px 20px;
+            transition: background-color 0.3s ease;
+            font-size: 1rem;
+            border-radius: 5px;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        .btn-primary:hover {
+            background-color: #126900; /* Darker olive green */
+        }
+
+        .gunshot-img {
+            margin-top: 20px;
+            width: 200px;
+            height: auto;
+            display: block;
+            background: url('https://www.unite.ai/wp-content/uploads/2023/07/Alex_Mc_deepfake_technology._neural_networks._c77d4635-85f6-4a95-a77d-b5c9b7dec5cd.jpg') no-repeat center center;
+            background-size: cover;
+        }
+    </style>
+</head>
+<body>
+    <h1 id="one">Check Truth Lens Audio !</h1>
+
+    
+
+    <div class="form-container">
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="btn-primary">Upload</button>
+        </form>
+    </div>
+
+    <!-- Gunshot Image -->
+    <div class="gunshot-img"></div>
+</body>
+</html>

@@ -1,0 +1,130 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Model Implementation</title>
+   
+</head>
+<style>
+ 
+    body {
+        font-family: 'Open Sans', Arial, sans-serif;
+        background-image: url(https://images.deccanherald.com/deccanherald%2F2023-11%2Fd18e1b53-c2a8-42bc-83c7-d92bdcb571ee%2FiStock_1482446015.jpg?rect=0%2C60%2C2291%2C1203&w=1200&ar=40%3A21&auto=format%2Ccompress&ogImage=true&mode=crop&enlarge=true&overlay=false&overlay_position=bottom&overlay_width=100);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        
+    }
+    
+    
+    .container {
+        width: 50%;
+        background: #ffffff;
+        padding: 20px;
+        margin-top: 100px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        text-align: center;
+    }
+    
+    .box {
+        padding: 20px;
+    }
+    
+    h1, h3 {
+        color: #333;
+    }
+    
+    a {
+        text-decoration: none;
+        font-size: 18px;
+        color: #007bff;
+    }
+    
+    a:hover {
+        color: #0056b3;
+    }
+    
+    form {
+        margin-top: 20px;
+    }
+    
+    .bb {
+        margin-top: 10px;
+    }
+    
+    .but {
+        background: #007bff;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+    }
+    
+    .but:hover {
+        background: #00b32d;
+    }
+    
+    code {
+        display: block;
+        background: #e9ecef;
+        padding: 10px;
+        border-radius: 5px;
+        font-weight: bold;
+        color: #333;
+    }
+    
+    .img {
+        margin-top: 20px;
+    }
+    
+    .img img {
+        width: 100%;
+        max-width: 400px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+     
+</style>
+<body>
+
+    <div class="container">
+        <div class="box">
+           
+            <h1 >Image Model Implementation</h1>
+            <h3 >Drop File Upload</h3>
+
+            <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{ form.as_p }}
+                
+                <div class="bb"><button class="but" type="submit">SUBMIT</button></div><br><br>
+            </form>
+
+            {% if obj %}
+                <code style="font-size: 20px;">{{ output | upper }}</code><br><br><br>
+
+                <div class="img">
+                    <img src="{{ obj.image.url }}" alt="No image found">
+                </div>
+                <div class="img">
+                    <img src="{{ image_uri }}" alt="No image found">
+                </div>
+            {% endif %}
+        </div>
+        
+    </div>
+</body>
+</html>
+{% endblock content %}
+    <!-- <h3 style="color: black;font-size: 38px;"> {{output}}</h3><br>
+    <h4 style="color: black;font-size: 20px;">ORIGINAL_IMAGE &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; MASK IMAGE</h4>
+    
+    <img src={{ image_uri }} height="200" width="200"> -->

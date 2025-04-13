@@ -1,0 +1,232 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Information</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+/* General Styles */
+body {
+    font-family: 'Open Sans', Arial, sans-serif;
+    background-color: #f8f9fa;
+    margin: 0;
+    padding: 20px;
+    text-align: center;
+}
+
+/* Card Styles */
+.card {
+    background: #ffffff;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    padding: 20px;
+    max-width: 600px;
+    margin: auto;
+    text-align: center;
+}
+
+.header-image {
+    width: 100%;
+    max-height: 300px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.card-title {
+    font-size: 24px;
+    font-weight: bold;
+    color: #343a40;
+    margin-top: 10px;
+}
+
+/* Alert Box Styles */
+.alert {
+    background-color: #e3f2fd;
+    color: #0d47a1;
+    padding: 20px;
+    border-radius: 8px;
+    max-width: 1200px;
+    margin: 20px auto;
+    text-align: left;
+    border-left: 5px solid #0d47a1;
+}
+.navbar {
+    padding: 15px 20px;
+    font-family: 'Open Sans', Arial, sans-serif;
+    font-size: 16px;
+    box-shadow: 0 4px 6px rgb(0, 0, 0);
+}
+
+.navbar-dark .navbar-nav .nav-link {
+    color: #f8f9fa;
+    transition: color 0.3s ease-in-out;
+    padding: 10px 15px;
+}
+
+.navbar-dark .navbar-nav .nav-link:hover {
+    color: #ff0707;
+    background-color: rgb(255, 255, 255);
+    border-radius: 5px;
+}
+
+.navbar-toggler {
+    border: none;
+    outline: none;
+}
+
+.navbar-toggler:focus {
+    box-shadow: none;
+}
+
+.navbar-toggler-icon {
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 5px;
+}
+
+/* Mobile Responsive */
+@media (max-width: 991px) {
+    .navbar-nav {
+        text-align: center;
+    }
+
+    .nav-item {
+        padding: 5px 0;
+    }
+
+    .navbar-collapse {
+        background-color: rgba(0, 0, 0, 0.9);
+        padding: 10px;
+        border-radius: 5px;
+    }
+}
+.alert h4 {
+    font-size: 22px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.alert p {
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+.alert ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.alert ul li {
+    padding: 5px 0;
+    font-size: 16px;
+}
+
+.alert ul li strong {
+    color: #007bff;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .card {
+        max-width: 100%;
+        padding: 15px;
+    }
+    .alert {
+        max-width: 100%;
+    }
+}
+    </style>
+</head>
+<body>
+  
+    
+  <div class="card">
+    <center><img src="{{ obj.image.url }}" alt="Input Images" class="header-image"> 
+        <div class="card-content">
+            <p class="card-title">{{ predicted | upper }}</p></center>
+        </div>
+    </div> 
+
+    {% if obj %}
+    {% if predict == "Fake" %}
+    <div class="alert alert-info" role="alert">
+        <h4 class="alert-heading">AI detected Face Detection</h4>
+        <p>
+            AI detected Face Detection is a crucial technology for identifying synthetic or manipulated faces generated using AI techniques such as Generative Adversarial Networks (GANs). AI detected images and videos can be used for misinformation, fraud, and other malicious activities, making detection essential for maintaining digital trust and security.
+        </p>
+        <hr>
+        <p>
+            <strong>Description:</strong>
+            <ul>
+                <li><strong>Manipulated Media:</strong> AI detected technology can alter facial expressions, replace identities, and create highly realistic yet synthetic content.</li>
+                <li><strong>AI-Generated Features:</strong> These manipulations are created using deep learning models, which can synthesize realistic facial movements, voice modulation, and micro-expressions.</li>
+                <li><strong>Security Risks:</strong> AI detected pose threats in identity theft, misinformation campaigns, and unauthorized access using facial recognition systems.</li>
+            </ul>
+        </p>
+        <p>
+            <strong>Prevention:</strong>
+            <ul>
+                <li><strong>AI-Based Detection:</strong> Utilize deep learning-based detection systems that analyze inconsistencies in pixelation, lighting, and facial features.</li>
+                <li><strong>Blockchain Verification:</strong> Implement blockchain-based digital authentication methods to verify the authenticity of media files.</li>
+                <li><strong>Media Forensics:</strong> Use forensic tools to analyze metadata, compression artifacts, and video inconsistencies for fake identification.</li>
+            </ul>
+        </p>
+        <p>
+            <strong>Precautions:</strong>
+            <ul>
+                <li><strong>Fact-Checking:</strong> Cross-check information from trusted sources before believing or sharing content.</li>
+                <li><strong>Authentication Measures:</strong> Use AI-driven verification tools to detect altered or AI-generated media.</li>
+                <li><strong>User Awareness:</strong> Educate individuals and organizations about AI detected technology, its risks, and ways to detect manipulated content.</li>
+            </ul>
+        </p>
+        <p>
+            <strong>Effects:</strong>
+            <ul>
+                <li><strong>Cybersecurity Threats:</strong> AI detected can be used for phishing attacks, impersonation fraud, and security breaches.</li>
+                <li><strong>Political Misinformation:</strong> Fake videos can manipulate public opinion and spread disinformation during elections or crises.</li>
+                <li><strong>Social Manipulation:</strong> False videos and images can cause reputational damage, harassment, and blackmail.</li>
+            </ul>
+        </p>
+        <p>
+            <strong>Detection Techniques:</strong>
+            <ul>
+                <li><strong>Deep Learning Models:</strong> CNN and LSTM models trained on real and fake images to identify forged elements.</li>
+                <li><strong>Eye Blink Detection:</strong> Analyzing unnatural blinking patterns in AI detected videos as a key indicator.</li>
+                <li><strong>Pixel Anomalies:</strong> Detecting distortions in image textures, shadows, and facial asymmetry.</li>
+                <li><strong>Audio-Visual Inconsistency:</strong> Comparing facial movements with audio for mismatches in speech patterns.</li>
+            </ul>
+        </p>
+    </div>
+    
+    
+    {% elif predict == "Real" %}
+    <div class="alert alert-info" role="alert">
+        <h4 class="alert-heading">Real Face Detection</h4>
+        <p>
+            AI detected is an advanced artificial intelligence-based approach that leverages deep learning techniques to distinguish between real and fake (spoofed) faces. This technology plays a crucial role in biometric security, fraud prevention, and authentication systems by analyzing facial features, textures, and movement patterns to ensure authenticity.
+        </p>
+        <hr>
+        <p>
+            <strong>Description:</strong>
+            <ul>
+                <li><strong>Facial Feature Analysis:</strong> The system examines intricate details of a face, such as skin texture, depth information, and micro-expressions, to differentiate between real and fake faces.</li>
+                <li><strong>AI and Machine Learning:</strong> Convolutional Neural Networks (CNNs) and deep learning algorithms are trained on vast datasets to improve accuracy in detecting real versus spoofed faces.</li>
+                <li><strong>Anti-Spoofing Techniques:</strong> It employs techniques such as liveness detection, infrared scanning, and depth-sensing to prevent presentation attacks (e.g., photo, video, or mask-based spoofing).</li>
+            </ul>
+        </p>
+       
+    </div>
+    
+
+
+        {% endif %}
+    {% endif %}
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+{% endblock content %}

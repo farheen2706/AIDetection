@@ -1,0 +1,198 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <title>Document</title>
+</head>
+<style>
+    /* Global Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Open Sans', Arial, sans-serif;
+    }
+    
+    body {
+      background: linear-gradient(135deg, #1a1a2e, #16213e);
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      text-align: center;
+    }
+    
+    .container {
+      position: relative;
+      max-width: 400px;
+      width: 100%;
+      background: rgba(255, 255, 255, 0.1);
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+      backdrop-filter: blur(10px);
+    }
+    
+    .logo {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+    
+    .logo img {
+      height: 64px;
+    }
+    
+    h1 {
+      font-size: 24px;
+      font-weight: bold;
+      margin-top: 10px;
+    }
+    
+    .name span {
+      color: #ffcc00;
+    }
+    
+    /* Form Styles */
+    .formWrapper {
+      width: 100%;
+    }
+    
+    h2 {
+      font-size: 22px;
+      margin-bottom: 15px;
+    }
+    
+    .inputWrapper {
+      position: relative;
+      margin: 20px 0;
+    }
+    
+    .inputWrapper input {
+      width: 100%;
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      outline: none;
+      background: rgba(255, 255, 255, 0.2);
+      color: #fff;
+    }
+    
+    .inputWrapper label {
+      position: absolute;
+      top: 50%;
+      left: 10px;
+      transform: translateY(-50%);
+      font-size: 16px;
+      color: #ccc;
+      transition: all 0.3s;
+    }
+    
+    .inputWrapper input:focus ~ label,
+    .inputWrapper input:valid ~ label {
+      top: 5px;
+      font-size: 12px;
+      color: #ffcc00;
+    }
+    
+    button {
+      width: 100%;
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      font-size: 18px;
+      background: #c59e00;
+      color: #ffffff;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    
+    button:hover {
+      background: #10bb00;
+    }
+    
+    #login {
+      display: block;
+      margin-top: 15px;
+      font-size: 14px;
+    }
+    
+    #login a {
+      color: #ffcc00;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    
+    #login a:hover {
+      text-decoration: underline;
+      color: #ff0000;
+    }
+    
+
+</style>
+<body>
+    <body id="signup">
+        <main class="container">
+          <div class="back"></div>
+          <div class="brand">
+            <div class="logo">
+                <img height="64" src="https://www.wondermedialibrary.com/wp-content/uploads/elementor/thumbs/program-logo_deepfakevideo-qi0hoczachbz1oc0nh8da3w4aiq9so1p22hiuig1ba.png" alt="Panda Logo" />
+                <h1>
+                  <span class="name"><span>Truth  </span><span>Lens</span></span>Detection
+                </h1>
+              </div>
+            
+          </div>
+          <div class="formWrapper">
+            <div class="form">
+              <h2>Create Account</h2>
+              <form method="post">
+                {% csrf_token %}
+                
+                <div class="inputWrapper">
+                  <input type="text" name="username" id="last" required />
+                  <label for="last">Username</label>
+                </div>
+                <div class="inputWrapper">
+                  <input type="email" name="email" id="email" required />
+                  <label for="email">Email</label>
+                </div>
+                
+                <div class="inputWrapper">
+                  <input type="password" name="password1" id="password" required />
+                  <label for="password">Password</label>
+                </div>
+                <div class="inputWrapper">
+                  <input type="password" name="password2" id="c_password" required />
+                  <label for="c_password">Confirm Password</label>
+                </div>
+              
+              <button  type="submit" name="register" id="register" value="REGISTER" />Submit</button>
+            </form>
+              <span id="login">Already a member? <a href="{% url 'ml_app:login' %}" title="Login">Log in!</a></span>
+            </div>
+          </div>
+        </main>
+      </body>
+       
+</body>
+
+</html>

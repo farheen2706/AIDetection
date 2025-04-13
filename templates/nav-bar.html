@@ -1,0 +1,89 @@
+<style>
+    /* Navbar Styling */
+.navbar {
+    padding: 15px 20px;
+    font-family: 'Open Sans', Arial, sans-serif;
+    font-size: 16px;
+    box-shadow: 0 4px 6px rgb(0, 0, 0);
+}
+
+.navbar-dark .navbar-nav .nav-link {
+    color: #f8f9fa;
+    transition: color 0.3s ease-in-out;
+    padding: 10px 15px;
+}
+
+.navbar-dark .navbar-nav .nav-link:hover {
+    color: #ff0707;
+    background-color: rgb(255, 255, 255);
+    border-radius: 5px;
+}
+
+.navbar-toggler {
+    border: none;
+    outline: none;
+}
+
+.navbar-toggler:focus {
+    box-shadow: none;
+}
+
+.navbar-toggler-icon {
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 5px;
+}
+
+/* Mobile Responsive */
+@media (max-width: 991px) {
+    .navbar-nav {
+        text-align: center;
+    }
+
+    .nav-item {
+        padding: 5px 0;
+    }
+
+    .navbar-collapse {
+        background-color: rgba(0, 0, 0, 0.9);
+        padding: 10px;
+        border-radius: 5px;
+    }
+}
+
+</style>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-2" >
+    <!-- <a class="navbar-brand" href="#">Navbar</a> -->
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse"  id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto" >
+            <li class="nav-item">
+                <a class="nav-link" href="{%url 'ml_app:home'%}">Video Detect</a>
+            </li>
+            
+            <li class="nav-item">
+                <a class="nav-link" href="{%url 'ml_app:model'%}">Audio Detect</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{%url 'ml_app:model_db'%}">Audio Database</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{%url 'ml_app:modell'%}">Image Detect</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{%url 'ml_app:Database'%}">Image Database</a>
+            </li>
+           
+          
+            
+            <li class="nav-item">
+                <a class="nav-link" href="{%url 'ml_app:landingpage'%}">Logout</a>
+            </li>
+            
+         
+        </ul>
+    </div>
+</nav>

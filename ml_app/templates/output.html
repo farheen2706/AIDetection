@@ -1,0 +1,198 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ prediction | upper }} Classification</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #940c0c; /* Light grey background */
+            color: #333;
+            background-image: url('https://www.transparenttextures.com/patterns/army-wood.png'); /* Army-themed background */
+            background-size: cover;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: 	rgb(69, 75, 27); /* Slightly opaque white background for readability */
+            border-radius: 8px;
+        }
+        .card {
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            margin-bottom: 20px;
+        }
+        .card-content {
+            padding: 20px;
+        }
+        .card-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: darkgoldenrod; /* Blue for highlighting */
+        }
+        .card-text {
+            font-size: 1rem;
+            line-height: 1.5;
+            margin-bottom: 10px;
+        }
+        h3 {
+            font-size: 1.25rem;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            color: darkgoldenrod;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #f1f5f9;
+            color: darkgoldenrod;
+            font-weight: 600;
+        }
+        tr:nth-child(even) {
+            background-color: 	rgb(27, 36, 75);
+        }
+        tr:hover {
+            background-color: rgb(27, 32, 75);
+            color: white;
+        }
+        .video-container {
+            margin-top: 20px;
+        }
+        .video-container img {
+            width: 800px;
+            height: 515px;
+            border: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <div class="card-content">
+                <h2 class="card-title">{{ prediction | upper }} Classification</h2>
+                <p class="card-text">
+                    <audio controls>
+                        <source src="{{ audio_file.audio_file.url }}" type="audio/mpeg">
+                        Your browser does not support the audio element.
+                    </audio>
+                </p>
+                <h3>Description</h3>
+                <p class="card-text">
+                    {% if prediction == 'FAKE' %}
+                    AI detected human audio refers to artificially generated audio that convincingly mimics the voice and speech patterns of a specific individual. Using advanced machine learning techniques, particularly deep learning algorithms, this technology analyzes and learns from a person's vocal characteristics, such as tone, pitch, and accent, enabling the creation of highly realistic audio clips. These synthetic voices can reproduce natural speech patterns and even emotional nuances, making it challenging to distinguish between genuine and fabricated recordings. While deepfake audio has applications in entertainment, such as creating voiceovers for characters or reviving deceased actors, it also raises significant ethical concerns, particularly regarding misinformation, privacy violations, and potential misuse in impersonation or fraud. As the technology evolves, it becomes increasingly important to develop countermeasures and promote awareness about the implications of AI detected audio in society.
+                    {% elif prediction == 'REAL' %}
+                    AI detected audio refers to artificially generated audio that mimics a person’s voice, creating the illusion that they are speaking words or phrases they never actually said. This technology employs advanced machine learning algorithms, particularly deep learning models, to analyze and replicate the unique vocal characteristics of an individual, including tone, pitch, and speech patterns. By training on extensive datasets of the target’s voice, AI detected audio can produce highly convincing results, making it difficult for listeners to discern between authentic speech and the synthetic version. While AI detected audio has potential applications in entertainment, gaming, and accessibility, it also raises ethical concerns, particularly regarding misinformation, privacy, and the potential for misuse in creating misleading or harmful content. The capability to generate realistic audio can challenge traditional notions of authenticity and trust, necessitating ongoing discussions about regulation and responsible use of this technology.
+                    
+                    
+                    {% else %}
+                    Classification not recognized.
+                    {% endif %}
+                </p>
+
+                <h3>Advantages and Disadvantages of Human Audio </h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Classification</th>
+                            <th>Advantages</th>
+                            <th>Disadvantages</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% if prediction == 'FAKE' %}
+                        <tr>
+                            <td>Fake Audio</td>
+                            <td>Highly customizable, can generate voice samples of anyone, can be produced quickly and at scale.</td>
+                            <td>Potential for misuse (e.g., misinformation, fraud), can damage reputations, difficult to distinguish from real audio.</td>
+                        </tr>
+                        {% elif prediction == 'REAL' %}
+                        <tr>
+                            <td>Real Audio</td>
+                            <td>Authentic representation of the speaker's voice, maintains emotional nuances and context, trusted source of information.</td>
+                            <td>Limited availability, higher production costs, difficult to reproduce in certain scenarios.</td>
+                        </tr>
+                        {% else %}
+                        <tr>
+                            <td colspan="3">No data available for this classification.</td>
+                        </tr>
+                        {% endif %}
+                    </tbody>
+                </table>
+
+
+                <h3>Specifications and Usage</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Classification</th>
+                            <th>How to Build</th>
+                            <th>How to Use</th>
+                            <th>Effects and Risks of AI detected Audio</th>
+                            <th>Suitable Placement</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% if prediction == 'FAKE' %}
+                        <tr>
+                            <td>AI detected Audio (Fake)</td>
+                            <td>Requires advanced machine learning algorithms; utilize datasets of the target voice.</td>
+                            <td>Generated audio can be played through speakers or integrated into applications.</td>
+                            <td>Can mislead listeners; may be used for misinformation or fraud.</td>
+                            <td>Commonly used in media, entertainment, or misleading content; handle with caution.</td>
+                        </tr>
+                        {% elif prediction == 'REAL' %}
+                        <tr>
+                            <td>Authentic Human Audio (Real)</td>
+                            <td>Recorded using high-quality microphones and professional equipment.</td>
+                            <td>Playback through various audio systems for communication, entertainment, or instruction.</td>
+                            <td>Maintains trust; essential for accurate information sharing and genuine interactions.</td>
+                            <td>Widely suitable in educational, professional, and personal contexts.</td>
+                        </tr>
+       
+                        
+                        {% else %}
+                        <tr>
+                            <td colspan="7">No data available for this classification.</td>
+                        </tr>
+                        {% endif %}
+                    </tbody>
+                </table>
+
+                <!-- Embed videos based on prediction -->
+                <div class="video-container">
+                    {% if prediction == 'FAKE' %}
+                    <center><img width="560" height="315" src="https://www.djarts.com.au/wp-content/uploads/2018/06/62_Is_my_singing_voice_FAKE_or_REAL.jpg" alt="Fake Video" /></center>
+                    {% elif prediction == 'REAL' %}
+                    <center> <img width="560" height="315" src="https://www.seoclerk.com/pics/001/025/986/1c8c95b6c22db1ff4a35a04b58d5a03a.jpg" alt="Real Video" /></center>
+                    {% else %}
+                        <p>No prediction available.</p>
+                    {% endif %}
+                </div>
+                
+                
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+{% endblock content %}
