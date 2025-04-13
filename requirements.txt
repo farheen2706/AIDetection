@@ -249,3 +249,11 @@ websocket-client==1.7.0
 Werkzeug==3.0.1
 widgetsnbextension==4.0.9
 wrapt==1.16.0
+# Essential build tools
+setuptools
+wheel
+
+# Pin numpy to avoid source build issues
+numpy==1.24.4
+tensorflow==2.12.0  # Example if you're using deep learning
+opencv-python
